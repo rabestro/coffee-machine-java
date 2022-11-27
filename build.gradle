@@ -1,5 +1,6 @@
 plugins {
     id 'groovy'
+    id 'org.sonarqube' version '3.5.0.2730'
 }
 
 group 'com.epam.engx'
@@ -15,4 +16,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "rabestro_coffee-machine-java"
+        property "sonar.organization", "rabestro"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
