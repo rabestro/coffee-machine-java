@@ -24,19 +24,6 @@ dependencies {
 test {
     useJUnitPlatform()
 
-/*
-    filter {
-        excludeTestsMatching 'example.*'
-    }
-*/
-
-    // gradle test -PexcludeTests=**/example/*
-    if (project.hasProperty('excludeTests')) {
-        exclude project.property('excludeTests')
-    } else {
-        exclude '**/example/*'
-    }
-
     finalizedBy jacocoTestReport
     testLogging {
         events 'passed', 'skipped', 'failed'
