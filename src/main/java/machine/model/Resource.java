@@ -17,7 +17,8 @@ public enum Resource implements IntFunction<String> {
         this.template = template;
     }
 
-    public String getResourceName() {
+    @Override
+    public String toString() {
         return resourceName;
     }
 
