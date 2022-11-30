@@ -16,6 +16,7 @@ dependencies {
 
     // Spock Reports
     testRuntimeClasspath 'com.athaydes:spock-reports:2.4.0-groovy-4.0'
+
     // Simple Logging Facade (required for spock-reports)
     testImplementation 'org.slf4j:slf4j-api:2.0.4'
     testRuntimeClasspath 'org.slf4j:slf4j-simple:2.0.4'
