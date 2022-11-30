@@ -1,13 +1,9 @@
 package machine.unit
 
 import machine.model.Resource
-import spock.lang.Issue
-import spock.lang.Narrative
-import spock.lang.PendingFeature
-import spock.lang.See
-import spock.lang.Specification
-import spock.lang.Subject
-import spock.lang.Title
+import spock.lang.*
+
+import java.util.concurrent.ThreadLocalRandom
 
 @Title('The technician replenishes the resources in the storage unit')
 @Narrative('''
@@ -20,13 +16,12 @@ So that the coffee machine can prepare the necessary coffee drinks
 @Subject(StorageBlock)
 class StorageBlockFillSpec extends Specification {
 
-    @PendingFeature
-    def 'replenish resource for empty storage block'() {
+    def 'replenish resource for an empty storage unit'() {
 
-        given: 'a storage block'
+        given: 'an empty storage unit'
         def storageUnit = new StorageBlock()
 
-        expect: 'the storage block has not resources'
+        expect: 'the storage unit has not resources'
         storageUnit.volume(resource) == 0
 
         when: 'we refill the resource'
@@ -37,6 +32,34 @@ class StorageBlockFillSpec extends Specification {
 
         where: 'available resources and replenishment'
         resource << Resource.values()
-        replenishment = 100
+        replenishment = 'random resource volume'()
+    }
+
+    def 'replenish resource for a filled storage unit'(Resource resource) {
+
+        given: 'a filled storage unit'
+        def storageUnit = 'filled storage unit'()
+
+        when: 'we refill the resource'
+        storageUnit.fill resource, replenishment
+
+        then: 'the volume of this resource is equal to replenishment'
+        storageUnit.volume(resource) == old(storageUnit.volume(resource)) + replenishment
+
+        where: 'available resources and replenishment'
+        resource << Resource.values()
+        replenishment = 'random resource volume'()
+    }
+
+    def 'filled storage unit'() {
+        def storage = new StorageBlock()
+        Resource.values().every {
+            storage.fill it, 'random resource volume'()
+        }
+        return storage
+    }
+
+    def 'random resource volume'() {
+        ThreadLocalRandom.current().nextInt(1, 5000)
     }
 }
