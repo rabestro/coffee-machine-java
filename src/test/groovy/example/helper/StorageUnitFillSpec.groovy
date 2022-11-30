@@ -33,6 +33,6 @@ class StorageUnitFillSpec extends Specification {
     }
 
     def 'random resource volume'() {
-        ThreadLocalRandom.current().nextInt(5000)
+        ThreadLocalRandom.current().nextInt(50) * 10
     }
 }
