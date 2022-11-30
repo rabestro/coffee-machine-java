@@ -11,8 +11,8 @@ As a technician
 I want to replenish the resources in the storage unit
 So that the coffee machine can prepare the coffee drinks
 ''')
-@See('https://github.com/rabestro/coffee-machine/wiki/Resources-replenishment')
 @Issue('4')
+@See('https://github.com/rabestro/coffee-machine/wiki/Resources-replenishment')
 @Subject(StorageBlock)
 @Tag('Sanity')
 class StorageBlockFillSpec extends Specification {
