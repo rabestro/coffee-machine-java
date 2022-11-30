@@ -15,7 +15,7 @@ spockReports {
     // If set to true, hides blocks which do not have any description
     set 'com.athaydes.spockframework.report.hideEmptyBlocks': false
     // options are: "class_name_and_title", "class_name", "title"
-    set 'com.athaydes.spockframework.report.internal.HtmlReportCreator.specSummaryNameOption': title
+    set 'com.athaydes.spockframework.report.internal.HtmlReportCreator.specSummaryNameOption': 'title'
     // exclude Specs Table of Contents
     set 'com.athaydes.spockframework.report.internal.HtmlReportCreator.excludeToc':false
     // Show the source code for each block
