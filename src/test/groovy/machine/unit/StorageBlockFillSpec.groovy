@@ -54,12 +54,12 @@ class StorageBlockFillSpec extends Specification {
     def 'filled storage unit'() {
         def storage = new StorageBlock()
         Resource.values().every {
-            storage.fill it, 'random resource volume'()
+            storage.containers[it.ordinal()] = 'random resource volume'()
         }
         return storage
     }
 
     def 'random resource volume'() {
-        ThreadLocalRandom.current().nextInt(1, 5000)
+        ThreadLocalRandom.current().nextInt(50) * 10
     }
 }
