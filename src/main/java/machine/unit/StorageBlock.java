@@ -15,3 +15,4 @@ public class StorageBlock implements StorageUnit {
         containers[resource.ordinal()] += replenishment;
     }
 }
+
