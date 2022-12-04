@@ -1,6 +1,9 @@
-package machine.unit
+package example.whitebox
 
 import machine.model.ControlState
+import machine.unit.ControlBlock
+import machine.unit.DisplayUnit
+import machine.unit.StorageUnit
 import spock.lang.Issue
 import spock.lang.Specification
 import spock.lang.Subject
